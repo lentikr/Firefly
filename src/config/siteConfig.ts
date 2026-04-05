@@ -10,10 +10,10 @@ export const siteConfig: SiteConfig = {
   title: "Lentikr's Blog'",
 
   // 站点副标题
-  subtitle: "Demo site",
+  subtitle: "",
 
   // 站点 URL
-  site_url: "https://firefly.lentikr.top",
+  site_url: "https://blog.lentikr.top",
 
   // 站点描述
   description: "个人博客，记录技术与生活。",
@@ -48,7 +48,7 @@ export const siteConfig: SiteConfig = {
   favicon: [
     {
       // 图标文件路径
-      src: "/favicon/favicon.ico",
+      src: "/favicon/favicon.svg",
       // 可选，指定主题 'light' | 'dark'
       // theme: "light",
       // 可选，图标大小
