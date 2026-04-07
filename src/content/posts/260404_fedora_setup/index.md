@@ -31,7 +31,7 @@ tags:
 - 关闭硬盘的BitLocker加密保护
   - 由于之前是Windows11系统，默认情况下硬盘应该已经被BitLocker加密初始化了，要安装双系统，应该先将硬盘内容解密，以免出现相关问题
 
-  - 由于我只有一个1T的硬盘，全部分给了Windows的C盘，所以可以使用下面的命令查看BitLocker状态，可以看到硬盘上已经被BitLocker加密了的
+  - 由于我只有一个1T的硬盘，全部分给了Windows的C盘，所以可以使用下面的命令查看BitLocker状态，可以看到硬盘是已经被BitLocker加密了的
 
     ```cmd
     > manage-bde -status C:
