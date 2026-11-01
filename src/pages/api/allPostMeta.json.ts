@@ -1,6 +1,7 @@
 import { getSortedPosts } from "@/utils/content-utils";
+import { formatDateToYYYYMMDD } from "@/utils/date-utils";
 
-export async function GET() {
+export async function GET(): Promise<Response> {
 	const posts = await getSortedPosts();
 
 	const allPostsData = posts
@@ -9,6 +10,7 @@ export async function GET() {
 			title: post.data.title,
 			description: post.data.description,
 			published: post.data.published.getTime(),
+			publishedDate: formatDateToYYYYMMDD(post.data.published),
 			category: post.data.category || "",
 			password: !!post.data.password,
 		}))

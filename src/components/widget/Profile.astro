@@ -2,10 +2,18 @@
 import { Icon } from "astro-icon/components";
 import ImageWrapper from "@/components/common/ImageWrapper.astro";
 import { profileConfig } from "@/config/profileConfig";
+import { encodeMailto, MAILTO_ONCLICK_SCRIPT } from "@/utils/email-utils";
 import { url } from "@/utils/url-utils";
+
+interface Props {
+	class?: string;
+	style?: string;
+}
+const { style } = Astro.props;
+const className = Astro.props.class;
 ---
 
-<div class="card-base p-3">
+<div class:list={["card-base", "p-3", className]} style={style}>
   <a
     aria-label="Go to About Page"
     href={url("/about/")}
@@ -24,7 +32,7 @@ import { url } from "@/utils/url-utils";
     <ImageWrapper
       src={profileConfig.avatar || ""}
       alt="Profile Image of the Author"
-      class="mx-auto lg:w-full h-full lg:mt-0"
+      class="profile-avatar-image mx-auto lg:w-full h-full lg:mt-0"
       loading="eager"
       fetchpriority="high"
       widths={[350]}
@@ -53,19 +61,8 @@ import { url } from "@/utils/url-utils";
                         : "btn-regular rounded-lg h-10 w-10 active:scale-90";
 
                     if (item.url.startsWith("mailto:")) {
-                        const encodedEmail = Buffer.from(item.url.replace("mailto:", "")).toString("base64");
-                        return <a rel="me" aria-label={item.name} href="#" data-encoded-email={encodedEmail} onclick={`
-                                            (function() {
-                                                const encodedEmail = this.getAttribute('data-encoded-email');
-                                                const decodedEmail = atob(encodedEmail);
-                                                this.href = 'mailto:' + decodedEmail;
-                                                this.removeAttribute('data-encoded-email');
-                                                this.removeAttribute('onclick');
-                                                this.click();
-                                                return false;
-                                            }).call(this);
-                                        `.replace(/\s+/g, " ").trim()
-                                    },
+                        const encodedEmail = encodeMailto(item.url);
+                        return <a rel="me" aria-label={item.name} href="#" data-encoded-email={encodedEmail} onclick={MAILTO_ONCLICK_SCRIPT},
                                     class={className}>
                             <Icon name={item.icon} class="text-[1.5rem]"></Icon>
                             {showName && item.name}
@@ -80,19 +77,8 @@ import { url } from "@/utils/url-utils";
             )}
             {profileConfig.links.length == 1 && (function(item){
                 if (item.url.startsWith("mailto:")) {
-                        const encodedEmail = Buffer.from(item.url.replace("mailto:", "")).toString("base64");
-                        return <a rel="me" aria-label={item.name} href="#" data-encoded-email={encodedEmail} onclick={`
-                                            (function() {
-                                                const encodedEmail = this.getAttribute('data-encoded-email');
-                                                const decodedEmail = atob(encodedEmail);
-                                                this.href = 'mailto:' + decodedEmail;
-                                                this.removeAttribute('data-encoded-email');
-                                                this.removeAttribute('onclick');
-                                                this.click();
-                                                return false;
-                                            }).call(this);
-                                        `.replace(/\s+/g, " ").trim()
-                                    },
+                        const encodedEmail = encodeMailto(item.url);
+                        return <a rel="me" aria-label={item.name} href="#" data-encoded-email={encodedEmail} onclick={MAILTO_ONCLICK_SCRIPT},
                                     class="btn-regular rounded-lg h-10 gap-2 px-3 font-bold active:scale-95">
                             <Icon name={item.icon} class="text-[1.5rem]"></Icon>
                             {item.name}

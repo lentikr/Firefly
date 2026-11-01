@@ -7,9 +7,9 @@
 > A Fresh and Beautiful Astro Static Blog Theme Template
 > 
 > ![Node.js >= 22](https://img.shields.io/badge/node.js-%3E%3D22-brightgreen) 
-![pnpm >= 9](https://img.shields.io/badge/pnpm-%3E%3D9-blue)
-![Astro](https://img.shields.io/badge/Astro-6.1.5-orange)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.9.2-blue)
+![pnpm >= 11](https://img.shields.io/badge/pnpm-%3E%3D9-blue)
+![Astro](https://img.shields.io/badge/Astro-7-orange)
+![TypeScript](https://img.shields.io/badge/TypeScript-6-blue)
 >
 > [![Stars](https://img.shields.io/github/stars/CuteLeaf/Firefly?style=social)](https://github.com/CuteLeaf/Firefly/stargazers)
 [![Forks](https://img.shields.io/github/forks/CuteLeaf/Firefly?style=social)](https://github.com/CuteLeaf/Firefly/network/members)
@@ -27,7 +27,7 @@
 
 ---
 📖 README:
-**[简体中文](README.md)** | **[繁體中文](docs/README.zh-TW.md)** | **[English](README.en.md)** | **[日本語](docs/README.ja.md)** | **[Русский](docs/README.ru.md)** 
+**[简体中文](README.md)** | **[繁體中文](docs/README.zh-TW.md)** | **[English](README.en.md)** | **[日本語](docs/README.ja.md)** | **[한국어](docs/README.ko.md)**
 
 🚀 Quick Guide:
 [**🖥️Live Demo**](https://firefly.cuteleaf.cn/) /
@@ -42,24 +42,30 @@
 
 🔧 Highly Configurable: Most features can be customized through configuration files
 
-<img alt="firefly" src="./docs/images/1.webp" />
+<table width="100%" align="center">
+  <tr>
+    <td colspan="3" align="center">
+      <img src="./docs/images/1.webp" >
+      <br>Banner Mode</td>
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><img src="./docs/images/3.webp" width="300"><br>Overlay Mode</td>
+    <td align="center"><img src="./docs/images/2.webp" width="300"><br>Fullscreen Wallpaper Mode</td>
+    <td align="center"><img src="./docs/images/4.webp" width="300"><br>Solid Color Mode</td>
+  </tr>
+</table>
 <img alt="Lighthouse" src="./docs/images/Lighthouse.png" />
 
 >[!TIP]
 >
 >Firefly is a fresh, beautiful, and modern personal blog theme template based on the Astro framework and the Fuwari template, designed for tech enthusiasts and content creators. It integrates a modern web tech stack, offering rich feature modules and a highly customizable interface so you can easily build a professional and visually appealing personal blog.
 >
->In terms of key layouts, Firefly innovatively adds dual sidebars, an article grid (multi-column) layout, and a masonry layout.
->
->It also adds widgets such as site statistics, calendar, table of contents, music player, and quick category navigation, making both the sidebar and the overall page layout richer.
->
->At the same time, it also adds components such as share posters, related post recommendations, and random posts, making article pages more content-rich.
->
->**If you reference or use the component designs and related code above from Firefly, please credit Firefly.**
+>**If you refer to or use Firefly component design and related code, please credit Firefly.**
 >
 >Firefly also preserves the original fuwari layout, which can be freely switched in the configuration file according to your preferences.
 >
->**For more layout configurations and demos, please see: [Firefly Layout System Details](https://firefly.cuteleaf.cn/posts/firefly-layout-system/)**
+>**For more layout configurations and demos, please see: [Firefly Layout System Details](https://firefly.cuteleaf.cn/posts/guide/firefly-layout-system/)**
 >
 >Firefly supports i18n multilingual UI, but except for Simplified Chinese, other languages are AI-translated. If you find any errors, feel free to submit a [Pull Request](https://github.com/CuteLeaf/Firefly/pulls) to help improve them.
 
@@ -70,7 +76,7 @@
 - [x] **Astro + Tailwind CSS** - Ultra-fast static site generation based on modern tech stack
 - [x] **Smooth Animations** - Swup page transition animations for silky smooth browsing experience
 - [x] **Responsive Design** - Perfect adaptation for desktop, tablet and mobile devices
-- [x] **Multi-language Support** - i18n internationalization ui, supports Simplified Chinese, Traditional Chinese, English, Japanese, Russian
+- [x] **Multi-language Support** - i18n internationalization ui, supports Simplified Chinese, Traditional Chinese, English, Japanese, Russian, Korean
 - [x] **Full-text Search** - Client-side search based on Pagefind, supports article content indexing.
 
 ### Personalization
@@ -80,7 +86,7 @@
 - [x] **Footer Configuration** - HTML content injection, fully customizable
 - [x] **Light/Dark Mode** - Supports light/dark/system three modes
 - [x] **Navbar Customization** - Logo, title, links fully customizable
-- [x] **Wallpaper Mode Switching** - Banner wallpaper, fullscreen wallpaper, solid background
+- [x] **Wallpaper Mode Switching** - Banner wallpaper, fullscreen wallpaper, fullscreen transparent wallpaper, solid background
 - [x] **Theme Color Customization** - 360° hue adjustment
 
 
@@ -91,7 +97,7 @@ If you have useful features and optimizations, please submit a [Pull Request](ht
 ### Requirements
 
 - Node.js ≥ 22
-- pnpm ≥ 9
+- pnpm ≥ 11
 
 ### Local Development
 
@@ -161,33 +167,37 @@ const SITE_LANG = "zh_CN";
 - `en` - English
 - `ja` - Japanese
 - `ru` - Russian
+- `ko` - Korean
 
 ### Configuration File Structure
 
 ```
 src/
 ├── config/
-│   ├── index.ts              # Configuration index file
-│   ├── siteConfig.ts         # Site basic configuration
-│   ├── backgroundWallpaper.ts # Background wallpaper configuration
-│   ├── profileConfig.ts      # User profile configuration
-│   ├── commentConfig.ts      # Comment system configuration
-│   ├── announcementConfig.ts # Announcement configuration
-│   ├── licenseConfig.ts      # License configuration
-│   ├── footerConfig.ts       # Footer configuration
-│   ├── FooterConfig.html     # Footer HTML content
-│   ├── expressiveCodeConfig.ts # Code highlighting configuration
-│   ├── sakuraConfig.ts       # Sakura effect configuration
-│   ├── fontConfig.ts         # Font configuration
-│   ├── sidebarConfig.ts      # Sidebar layout configuration
-│   ├── navBarConfig.ts       # Navbar configuration
-│   ├── musicConfig.ts        # Music player configuration
-│   ├── pioConfig.ts          # Mascot configuration
-│   ├── adConfig.ts           # Ad configuration
-│   ├── friendsConfig.ts      # Friend links configuration
-│   ├── galleryConfig.ts      # Gallery configuration
-│   ├── sponsorConfig.ts      # Sponsor configuration
-│   └── coverImageConfig.ts   # Article cover image configuration
+│   ├── index.ts                  # Configuration index file
+│   ├── siteConfig.ts             # Site basic configuration
+│   ├── analyticsConfig.ts        # Analytics configuration
+│   ├── announcementConfig.ts     # Announcement configuration
+│   ├── backgroundWallpaper.ts    # Background wallpaper configuration
+│   ├── commentConfig.ts          # Comment system configuration
+│   ├── coverImageConfig.ts       # Cover image configuration
+│   ├── displaySettingsConfig.ts  # Settings panel configuration
+│   ├── dynamicConfig.ts          # Moments page configuration
+│   ├── effectsConfig.ts          # Animation effects config (sakura, etc.)
+│   ├── expressiveCodeConfig.ts   # Code highlighting configuration
+│   ├── fontConfig.ts             # Font configuration
+│   ├── FooterConfig.html           # Footer configuration
+│   ├── friendsConfig.ts          # Friend links configuration
+│   ├── galleryConfig.ts          # Gallery configuration
+│   ├── licenseConfig.ts          # License configuration
+│   ├── musicConfig.ts            # Music player configuration
+│   ├── navBarConfig.ts           # Navbar configuration
+│   ├── pioConfig.ts              # Mascot configuration
+│   ├── mermaidConfig.ts          # Mermaid diagram configuration
+│   ├── plantumlConfig.ts         # PlantUML diagram configuration
+│   ├── profileConfig.ts          # User profile configuration
+│   ├── sidebarConfig.ts          # Sidebar layout configuration
+│   └── sponsorConfig.ts          # Sponsor configuration
 ```
 
 
@@ -208,11 +218,33 @@ comment: true    # Enable comments
 ---
 ```
 
+## Moments
+
+Moment files are stored in `src/content/dynamic/`, with one Markdown file per moment. Create one with:
+
+```bash
+pnpm new-d The weather is lovely today
+```
+
+`pnpm new-dynamic <content>` is the equivalent full command.
+
+```yaml
+---
+published: 2026-07-15 16:15:29
+pinned: true  # Pin article
+location: China # Location
+---
+
+Moment content supports Markdown.
+```
+
+Also supports [Memos](https://www.usememos.com/) as a data source. Configure the `memos` option in `src/config/dynamicConfig.ts` to fetch Memos moments in real-time, with pinned sync and image attachment support. See [Moments documentation](https://docs-firefly.cuteleaf.cn/en/guide/dynamic.html).
+
 ## 📖 Markdown Extensions
 
 In addition to the default [GitHub Flavored Markdown](https://github.github.com/gfm/) support in Astro, there are some additional Markdown features:
 
-- Admonitions - Supports configuration for GitHub, Obsidian, and VitePress themes ([Preview and Usage](https://firefly.cuteleaf.cn/posts/markdown-extended/))
+- Admonitions - Supports configuration for GitHub, Obsidian, VitePress, and Docusaurus themes ([Preview and Usage](https://firefly.cuteleaf.cn/posts/markdown-extended/))
 - GitHub Repository Cards ([Preview and Usage](https://firefly.cuteleaf.cn/posts/markdown-extended/))
 - Enhanced Code Blocks based on Expressive Code ([Preview](http://firefly.cuteleaf.cn/posts/code-examples/) / [Documentation](https://expressive-code.com/))
 
@@ -229,6 +261,8 @@ All commands need to be executed in the project root directory:
 | `pnpm check`               | Check for errors in code                            |
 | `pnpm format`              | Format your code using Biome                        |
 | `pnpm new-post <filename>` | Create new article                                  |
+| `pnpm new-d <content>`     | Create a new moment                                 |
+| `pnpm new-dynamic <content>` | Create a new moment (full command)                |
 | `pnpm astro ...`           | Execute `astro add`, `astro check` and other commands |
 | `pnpm astro --help`        | Display Astro CLI help                              |
 
